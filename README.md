@@ -1,50 +1,18 @@
-# React + TypeScript + Vite
+# Turnos para Carga de Combustible
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+Esta aplicación tiene como objetivo digitalizar el sistema de turnos para carga de combustible de camiones en la empresa de logística. Permite a los encargados gestionar los turnos de carga de forma eficiente, proporcionando una vista clara del orden de los camiones y el tipo de combustible (gasoil común o gasoil premium). Además, la aplicación permite que los camioneros consulten la disponibilidad de combustible y ver una lista de camiones que estan esperando cargar combustible.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
 
-## Expanding the ESLint configuration
+- **Gestión de turnos**: Los encargados pueden asignar turnos de forma manual y marcar los camiones como cargados, ausentes o en espera.
+- **Consultas de turnos**: Los camioneros pueden ver el orden de carga de los camiones y el tipo de combustible disponible.
+- **Visibilidad de combustible disponible**: Muestra la cantidad de litros de combustible disponible en los surtidores, permitiendo a los camioneros deducir el tiempo de demora.
+  
+## Tecnologías
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Frontend**: React (con TypeScript)
+- **Base de datos**: Firestore database
+- **Autenticación**: Firebase authentication
+- **Deployment**: Vercel

@@ -1,7 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
 type TabsType = "Común" | "Infinia";
-//TODO: agregar comentarios explicando los context
 
 interface TabsContextProps {
     currentTab: TabsType;
