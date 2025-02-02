@@ -3,6 +3,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { TurnoType } from "../types/turnoType";
 import { deleteTurno } from "../utils/turnosListUtils";
 import { db } from "../firebase";
+import { useTabs } from "../contexts/TabsContext";
 
 interface Props {
     equipo: TurnoType;
@@ -11,12 +12,15 @@ interface Props {
 
 function DeleteButton({ equipo, turnosList }: Props) {
     const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const { currentTab } = useTabs()
+
+    const currentList = currentTab === "Común" ? "comunList" : "infiniaList"
 
     const deleteHandler = async () => {
         const deletedTurno = deleteTurno(turnosList, equipo);
 
         try {
-            await setDoc(doc(db, "turnosData", "turnosList"), {
+            await setDoc(doc(db, currentList, currentList), {
                 turnos: deletedTurno
             });
         } catch (error) {
@@ -28,8 +32,8 @@ function DeleteButton({ equipo, turnosList }: Props) {
     return (
         <>
             {/* Botón de eliminar */}
-            <button 
-                onClick={() => setIsDialogOpen(true)} 
+            <button
+                onClick={() => setIsDialogOpen(true)}
                 className="bg-blue-900 active:bg-blue-950 rounded shadow-lg px-2 text-sm"
             >
                 X
@@ -41,14 +45,14 @@ function DeleteButton({ equipo, turnosList }: Props) {
                     <div className="bg-white p-4 rounded-lg shadow-lg">
                         <p className="text-gray-900">¿Seguro que quieres borrar este turno?</p>
                         <div className="flex justify-end mt-4 space-x-2">
-                            <button 
-                                onClick={() => setIsDialogOpen(false)} 
+                            <button
+                                onClick={() => setIsDialogOpen(false)}
                                 className="bg-gray-400 px-3 py-1 rounded"
                             >
                                 Cancelar
                             </button>
-                            <button 
-                                onClick={deleteHandler} 
+                            <button
+                                onClick={deleteHandler}
                                 className="bg-red-600 text-white px-3 py-1 rounded"
                             >
                                 Borrar
