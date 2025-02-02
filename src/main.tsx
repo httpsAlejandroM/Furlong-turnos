@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './contexts/authContext.tsx'
-import { TabsProvider } from './contexts/tabsContext.tsx'
+import { TabsProvider } from './contexts/TabsContext.tsx'
 import { FuelProvider } from './contexts/FuelContext.tsx'
 
 
