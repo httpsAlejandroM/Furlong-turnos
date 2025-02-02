@@ -10,7 +10,7 @@ import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
   apiKey:  import.meta.env.VITE_API_KEY,//"AIzaSyC0co7SzDr0xXOZtgicqmU5DiYCcuV0V-o",
   authDomain: import.meta.env.VITE_AUTH_DOMAIN,//"furlong-turnos.firebaseapp.com",
-  projectId: import.meta.env.VITE_PROJECT_ID ,//"furlong-turnos",
+  projectId: "furlong-turnos",
   storageBucket: import.meta.env.VITE_STORAGE_BUCKET ,//"furlong-turnos.firebasestorage.app",
   messagingSenderId: import.meta.env.VITE_SENDER_ID ,//"979179618195",
   appId: import.meta.env.VITE_APP_ID ,//"1:979179618195:web:f6f2bab6fc1418bf13f266",
