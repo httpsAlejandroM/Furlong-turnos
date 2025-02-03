@@ -70,7 +70,7 @@ const { currentTab } = useTabs()
         onClick={() => setIsOpen(!isOpen)}
       >
         {selectedStatus}
-        <span className={`me-1 transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>{`\u2B9F`}</span>
+        <span className={`me-1 transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>{`\u2BC6`}</span>
       </div>
 
       {isOpen && (
