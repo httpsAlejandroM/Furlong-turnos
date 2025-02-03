@@ -74,11 +74,11 @@ const { currentTab } = useTabs()
       </div>
 
       {isOpen && (
-        <ul className="text-start absolute z-10 w-full bg-white border border-gray-300 rounded-lg shadow-lg">
+        <ul className="text-start absolute z-10 w-full bg-white border border-gray-300 rounded-lg shadow-lg dark:bg-neutral-900  dark:border-neutral-700">
           {options.map((option) => (
             <li
               key={option}
-              className={`px-2 py-1 hover:bg-gray-200 cursor-pointer rounded-lg ${selectedStatus === option ? "hover:bg-white text-slate-400 cursor-default rounded-none" : ""
+              className={`px-2 py-1 cursor-pointer rounded-lg  hover:bg-gray-200 dark:hover:bg-neutral-700 ${selectedStatus === option ? "hover:bg-white text-slate-400 cursor-default rounded-none dark:hover:bg-neutral-900" : "text-black dark:text-white"
                 }`}
               onClick={() => handleSelect(option)}
             >
