@@ -3,7 +3,7 @@ type TurnoType = {
     estado: string
 }
 
-type StatusType = "Cargó" | "Ausente" | "Esperando"
+type StatusType = "Cargó" | "Cargando" | "Ausente" | "Esperando"
 
 export type {
     TurnoType,

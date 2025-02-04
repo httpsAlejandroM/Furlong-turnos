@@ -20,12 +20,14 @@ const { currentTab } = useTabs()
 
     const currentList = currentTab === "Común" ? "comunList" : "infiniaList"
 
-  const options: StatusType[] = ["Cargó", "Ausente", "Esperando"];
+  const options: StatusType[] = ["Cargó", "Cargando", "Ausente", "Esperando"];
 
   const bgStatus = (status: string) => {
     switch (status) {
       case "Cargó":
         return "bg-green-300 text-green-900";
+        case "Cargando":
+          return "bg-blue-300 text-blue-900";
       case "Ausente":
         return "bg-red-300 text-red-900";
       case "Esperando":
