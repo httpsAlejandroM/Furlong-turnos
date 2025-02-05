@@ -39,6 +39,12 @@ function NavBar() {
           className={`${buttonNavStyles} ${currentTab === "Infinia" ? "bg-red-600" : ""}`}>
           Infinia
         </button>
+        <button
+          onClick={() => setCurrentTab("Avisos")}
+          type="button"
+          className={`${buttonNavStyles} ${currentTab === "Avisos" ? "bg-red-600" : ""}`}>
+          Avisos
+        </button>
       </div>
       <div className="">
         {
