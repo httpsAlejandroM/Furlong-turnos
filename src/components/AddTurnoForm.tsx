@@ -16,13 +16,6 @@ function AddTurnoForm({ turnosList }: props) {
     const [newEquipo, setNewEquipo] = useState('');
     const [newEstado, setNewEstado] = useState('Esperando')
     const { currentTab } = useTabs()
-    const dateOptions: Intl.DateTimeFormatOptions = {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-    };
-
-    const fecha = new Date().toLocaleString("es-Es", dateOptions)
 
     const currentList = currentTab === "Común" ? "comunList" : "infiniaList"
 
@@ -30,11 +23,10 @@ function AddTurnoForm({ turnosList }: props) {
         const addEquipo = { equipo: Number(newEquipo), estado: newEstado }
 
         const turnos = pushTurno(turnosList, addEquipo)
-        //TODO: agregar ultima actualizacion en bd de firebase para compararla con una actual en caso de que sea fecha vieja borrar la lista
+
         try {
             await setDoc(doc(db, currentList, currentList), {
-                turnos,
-                lastDate: fecha
+                turnos
             });
             setNewEquipo('');
             setNewEstado('Esperando');

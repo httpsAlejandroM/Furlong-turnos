@@ -3,7 +3,7 @@ import AddTurnoForm from "./AddTurnoForm";
 import { TurnoType } from "../types/turnoType";
 import { useAuth } from "../contexts/authContext";
 import TablaTurnos from "./TablaTurnos";
-import { doc, onSnapshot, setDoc } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
 import DeleteAllButon from "./DeleteAllButton";
 import { useTabs } from "../contexts/TabsContext";
@@ -25,22 +25,6 @@ function Turno() {
     
     const fecha = new Date().toLocaleString("es-Es", dateOptions)
 
-    const deleteList = async () => {
-        try {
-            await setDoc(doc(db, "comunList", "comunList"), {
-                turnos: [],
-                lastUpdated: fecha,
-            });
-
-            await setDoc(doc(db, "infiniaList", "infiniaList"), {
-                turnos: [],
-                lastUpdated: fecha,
-            });
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
     //me suscribo a los cambios en la colección turnos y actualizo el estado en tiempo real
     useEffect(() => {
         const docRef = doc(db, currentList, currentList);
@@ -48,9 +32,7 @@ function Turno() {
         const unsubscribe = onSnapshot(docRef, (docSnap) => {
             if (docSnap.exists()) {
                 const data = docSnap.data();
-                if(data.lastDate !== fecha) {
-                    deleteList()
-                }
+                
                 setTurnosList(data.turnos || []); // Actualizar estado con el array
             } else {
                 console.log("Documento no encontrado");
@@ -59,7 +41,6 @@ function Turno() {
 
         // Cleanup: cancelar la suscripción cuando el componente se desmonte
         return () => unsubscribe();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentList]);
 
 
