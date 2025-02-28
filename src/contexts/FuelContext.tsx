@@ -17,7 +17,7 @@ const FuelContext = createContext<FuelContextType | undefined>(undefined);
 
 export function FuelProvider({ children }: { children: React.ReactNode }) {
   const [comunTank, setComunTank] = useState<FuelTank>({ currentLts: 40000, lastUpdate: "00:00" });
-  const [infiniaTank, setInfiniaTank] = useState<FuelTank>({ currentLts: 40000, lastUpdate: "00:00" });
+  const [infiniaTank, setInfiniaTank] = useState<FuelTank>({ currentLts: 80000, lastUpdate: "00:00" });
   const [ureaTank, setUreaTank] = useState<FuelTank>({ currentLts: 10000, lastUpdate: "00:00" });
 
   useEffect(() => {
