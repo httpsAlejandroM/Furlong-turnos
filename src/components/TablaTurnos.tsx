@@ -24,6 +24,8 @@ function TablaTurnos({ turnosList }: props) {
                 return "bg-red-300 text-red-900";
             case "Esperando":
                 return "bg-yellow-300 text-yellow-900";
+            case "Prioridad":
+                return "bg-purple-300 text-purple-900";
             default:
                 break;
         }
