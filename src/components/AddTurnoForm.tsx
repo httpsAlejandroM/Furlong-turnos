@@ -36,35 +36,40 @@ function AddTurnoForm({ turnosList }: props) {
     };
 
     return (
-        <div className="w-full mb-4 px-1">
-            <input
-                type="number"
-                placeholder="Equipo"
-                value={newEquipo}
-                onKeyDown={(e) => {
-                    if (["e", "E", "+", "-"].includes(e.key)) {
-                        e.preventDefault(); // Evita que el usuario escriba estas teclas
-                    }
-                }}
-                onChange={(e) => {
-                    const value = e.target.value;
+        <div className="w-full mb-4 px-1 flex items-center gap-2 overflow-hidden">
 
-                    // Permitir solo valores numéricos y limitar a 4 dígitos
-                    if (/^\d{0,4}$/.test(value)) {
-                        setNewEquipo(value);
-                    }
-                }}
-                className="px-2 py-1 rounded mr-2 text-gray-900 w-28"
-            />
-            <CustomSelects newEstado={newEstado} setNewEstado={setNewEstado} />
-            <button
-                disabled={newEquipo === ""}
-                onClick={handleAddEquipo}
-                className="px-2 py-1 bg-blue-900 text-white rounded w-auto disabled:bg-blue-950 disabled:text-gray-400"
-            >
-                Agregar Equipo
-            </button>
-        </div>
+    <input
+        type="number"
+        placeholder="Equipo"
+        value={newEquipo}
+        onKeyDown={(e) => {
+            if (["e", "E", "+", "-"].includes(e.key)) {
+                e.preventDefault();
+            }
+        }}
+        onChange={(e) => {
+            const value = e.target.value;
+            if (/^\d{0,4}$/.test(value)) {
+                setNewEquipo(value);
+            }
+        }}
+        className="px-2 py-1 rounded text-gray-900 w-20 flex-shrink"
+    />
+
+    <div className="flex-shrink">
+        <CustomSelects newEstado={newEstado} setNewEstado={setNewEstado} />
+    </div>
+
+    <button
+        disabled={newEquipo === ""}
+        onClick={handleAddEquipo}
+        className="px-2 py-1 bg-blue-900 text-white rounded flex-shrink whitespace-nowrap disabled:bg-blue-950 disabled:text-gray-400"
+    >
+        Agregar Equipo
+    </button>
+
+</div>
+
     )
 }
 export default AddTurnoForm
